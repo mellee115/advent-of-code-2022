@@ -1,0 +1,82 @@
+$color-green: #32D15C;
+$font-code: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',monospace;
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+}
+.container {
+  display: grid;
+  place-items: center;
+}
+.logo{
+  fill:red;
+}
+
+main {
+  display: grid;
+  grid-template-columns: minmax(1rem, 25%) 1fr;
+  justify-items: center;
+  align-items: center;
+}
+
+.day{
+  padding: 1rem;
+}
+
+footer {
+  padding: 1rem;
+  align-items: end;
+  font-size: 4rem;
+  font-family: $font-code;
+}
+
+h1{
+  color: $color-green;
+}
+h2{
+  font-family: $font-code;
+  text-align: center;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul{
+  list-style-type: none;
+  font-family: $font-code;
+}
+
+@media (prefers-color-scheme: dark) {
+  html {
+    color-scheme: dark;
+  }
+  body {
+    color: white;
+    background: black;
+  }
+}
+
+.puzzle{
+  background-color: $color-green;
+  border-radius: 5px;
+  padding: 1rem;
+  font-family: $font-code;
+}
+
+.solution{
+  padding-top: 1rem;
+}
+
+input[type=submit]{
+  margin: 0.5rem;
+  background-color: $color-green;
+  color: #fff;
+  border: 1px solid $color-green;
+  border-radius: 5px;
+}
