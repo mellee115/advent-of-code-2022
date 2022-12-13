@@ -2,31 +2,47 @@ import {useState} from "react";
 
 export default function Day2() {
 
-  const [strategyGuide, setStratgeyGuide] = useState(undefined);
+  const [strategyGuide, setStrategyGuide] = useState(undefined);
   const [score, setScore] = useState(undefined);
 
   const handleChange = (e) => {
-    setScore(e.target.value);
+    setStrategyGuide(e.target.value);
   }
 
-  // const handleKeyUp = (e) => {
-  //   if (e.code === 'Enter'){
-  //     setFoodList(e.target.value);
-  //     handleSubmit(e);
-  //   }
-  // }
+  const versusLegend =
+    {
+      'A Z': 0,
+      'B X': 0,
+      'C Y': 0,
+      'A X': 3,
+      'B Y': 3,
+      'C Z': 3,
+      'A Y': 6,
+      'B Z': 6,
+      'C X': 6
+    };
+  const scoreLegend = {'X': 1, 'Y': 2, 'Z': 3};
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   if ( typeof foodList === "string") {
-  //     setMaxCal(findMaxCal(foodList));
-  //   }
-  //
-  // }
+  const calculateScore = strategyGuide => {
+    strategyGuide = strategyGuide.split('\n');
+
+    let total = 0;
+    console.log(strategyGuide)
+    for (let i in strategyGuide){
+      total = total + scoreLegend[strategyGuide[i].substring(2,3)] + versusLegend[strategyGuide[i]];
+    }
+    setScore(total);
+  }
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    calculateScore(strategyGuide);
+  }
 
   return (
     <>
       <div className='puzzle'>
+        <h3>--- Day 2: Rock Paper Scissors ---</h3>
         The Elves begin to set up camp on the beach. To decide whose tent gets to be closest to the snack storage, a
         giant Rock Paper Scissors tournament is already in progress. Rock Paper Scissors is a game between two players.
         Each game contains many rounds; in each round, the players each simultaneously choose one of Rock, Paper, or
@@ -66,13 +82,12 @@ export default function Day2() {
         <b>What would your total score be if everything goes exactly according to your strategy guide?</b>
       </div>
       <div className='solution'>
-        <form>
+        <form onSubmit={handleSubmit}>
           <label>
             Submit your strategy guide:<br/>
             <textarea
               value={strategyGuide}
               onChange={(e) => handleChange(e)}
-              //onKeyUp={handleKeyUp}
             />
           </label>
           <input type="submit" value="Submit"  />

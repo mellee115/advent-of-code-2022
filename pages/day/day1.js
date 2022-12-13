@@ -9,23 +9,18 @@ export default function Day1() {
     let max = 0;
     let counter = 0;
 
-    x = [...x]
-    //todo: need to parse further so number with multiple digits are dealt with properly
+    x = x.split('\n')
 
     console.log(x)
     console.log(typeof x)
     for (let cal in  x) {
-      console.log('counter: '+ counter)
-      console.log('max: '+ max)
       if(Number(x[cal]) === 0){
         if (counter > max) {
           max = counter;
         }
         counter = 0;
-      }
-      else if (Number(x[cal]) !== 0) {
+      } else if (Number(x[cal]) !== 0) {
         counter = Number(x[cal]) + counter;
-        console.log('counter: '+ counter)
       }
     }
     if (counter > max) {
@@ -56,6 +51,7 @@ export default function Day1() {
   return (
     <>
       <div className='puzzle'>
+        <h3>--- Day 1: Calorie Counting ---</h3>
         The jungle must be too overgrown and difficult to navigate in vehicles or access from the air; the Elves'
         expedition traditionally goes on foot.
         As your boats approach land, the Elves begin taking inventory of their supplies.
