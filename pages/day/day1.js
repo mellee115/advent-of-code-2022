@@ -1,4 +1,4 @@
-import {useState} from "react";
+import {useState} from 'react';
 
 export default function Day1() {
 
@@ -11,8 +11,6 @@ export default function Day1() {
 
     x = x.split('\n')
 
-    console.log(x)
-    console.log(typeof x)
     for (let cal in  x) {
       if(Number(x[cal]) === 0){
         if (counter > max) {
@@ -61,7 +59,8 @@ export default function Day1() {
         that they've brought with them, one item per line. Each Elf separates their own inventory from the previous
         Elf's
         inventory (if any) by a blank line.<br/><br/>
-        For example, suppose the Elves finish writing their items' Calories and end up with the following list:<br/>
+        For example, suppose the Elves finish writing their items' Calories and end up with the following list:
+        <br/><br/>
         1000<br/>
         2000<br/>
         3000<br/>
@@ -78,7 +77,7 @@ export default function Day1() {
         10000<br/>
         <br/>
         This list represents the Calories of the food carried by five Elves:
-        <br/>
+        <br/><br/>
         The first Elf is carrying food with 1000, 2000, and 3000 Calories, a total of 6000 Calories.<br/>
         The second Elf is carrying one food item with 4000 Calories.<br/>
         The third Elf is carrying food with 5000 and 6000 Calories, a total of 11000 Calories.<br/>
@@ -100,7 +99,7 @@ export default function Day1() {
               onKeyUp={handleKeyUp}
             />
           </label>
-          <input type="submit" value="Submit"  />
+          <input type='submit' value='Submit'  />
         </form>
 
         { (maxCal !== 0 && maxCal !== undefined)  && `The elf carrying the most calories is carrying ${maxCal} total calories.`}
